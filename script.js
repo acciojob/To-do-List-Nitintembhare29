@@ -1,17 +1,17 @@
 //your code here
-const newTodoInput = document.getElementById("newTodoInput");
-const addTodoBtn = document.getElementById("addTodoBtn");
-const todoList = document.getElementById("todoList");
+const todoValue = document.getElementById("newTodoInput");
+const btn = document.getElementById("addTodoBtn");
+const ol = document.getElementById("todoList");
 
-addTodoBtn.addEventListener("click", function() {
-    let todo = newTodoInput.value;
-    if(!todo.trim()){
-    alert("Please enter a valid todo item");
-    return;
-    }
-    let newTodo = document.createElement("li");
-    newTodo.innerHTML = todo;
-    todoList.appendChild(newTodo);
-    newTodoInput.value = "";
-});
+function addTodo(){
+	if(todoValue.value){
+		// we need to create li element
+		const li = document.createElement('li');
+		li.textContent = todoValue.value;
+		ol.appendChild(li);
+		// now empty input
+		todoValue.value = "";
+	}
+}
 
+btn.addEventListener('click', addTodo);
